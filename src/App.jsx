@@ -1,47 +1,28 @@
-import { useEffect, useState } from "react";
-import { auth } from "./firebase/login";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import LoginButton from "./LoginButton";
-import Home from "./Home";
 import "./App.css";
+import Choice from "./components/Choice";
+import Clear from "./components/Clear";
+import Sunny from "./components/Sunny";
+import Cloudy from "./components/Cloudy";
+import Rainy from "./components/Rainy";
+import Thunder from "./components/Thunder";
+import Login from "./components/Login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    //firebaseの認証情報を監視
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
-    });
-    return () => unsubscribe();
-  }, []);
   return (
     <Router>
       <div className="App">
-        <h1>Feel Walk</h1>
+        <h1>Mental Traker</h1>
+        {/*aaa*/}
         <Routes>
-          {/* "/" にアクセス ⇒ 認証状況でリダイレクト */}
-          <Route
-            path="/"
-            element={user ? <Navigate to="/home" /> : <Navigate to="/login" />}
-          />
-
-          {/* "/login"にアクセス ⇒ userがいるなら"/home"に、いなければLoginButton表示 */}
-          <Route
-            path="/login"
-            element={user ? <Navigate to="/home" /> : <LoginButton />}
-          />
-
-          {/* "/home"にアクセス ⇒ userがいるならHomeコンポーネント表示、いなければ"/login"にリダイレクト */}
-          <Route
-            path="/home"
-            element={user ? <Home /> : <Navigate to="/login" />}
-          />
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/choice" element={<Choice />} />
+          <Route path="/Clear" element={<Clear />} />
+          <Route path="/Sunny" element={<Sunny />} />
+          <Route path="/Cloudy" element={<Cloudy />} />
+          <Route path="/Rainy" element={<Rainy />} />
+          <Route path="/Thunder" element={<Thunder />} />
         </Routes>
       </div>
     </Router>

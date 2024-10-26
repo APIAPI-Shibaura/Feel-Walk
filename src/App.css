@@ -1,15 +1,20 @@
-/* App.css */
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; /* 画面全体を占める */
-  background-image: url("./login-image.jpg");
-  background-size: cover;
-  font-family: "Arial", sans-serif;
-  color: #333;
+*{
+overflow-x: hidden;
+overflow-y: hidden;
 }
+
+#login{
+padding: 0;
+margin: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100vh;
+background-size: cover;
+font-family: "Arial", sans-serif;
+color: #333;
+background-image: url("./assets/login-image.jpg");
 
 h1 {
   margin-bottom: 40px;
@@ -18,24 +23,69 @@ h1 {
   color: #4a4a4a;
 }
 
-/* loginButton.jsx用のスタイル */
 .login-button {
-  background-color: #4285f4; /* Googleの青 */
+  background-color: #4285f4;
   color: white;
   border: none;
-  border-radius: 5px; /* 角を丸める */
-  padding: 15px 30px; /* ボタンのサイズ */
+  border-radius: 5px;
+  padding: 15px 30px;
   font-size: 1.2rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s; /* スムーズなアニメーション */
+  transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .login-button:hover {
-  background-color: #357ae8; /* ホバー時の色 */
-  transform: scale(1.05); /* 少し拡大 */
+  background-color: #357ae8;
+  transform: scale(1.05);
 }
 
 .login-text {
-  margin: 0; /* テキストのマージンをリセット */
+  margin: 0;
   text-align: center;
+}
+
+}
+
+.feelingQuestion{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color:rgb(255, 201, 113);
+  h1{
+    font-size: 50px;
+    text-align: center;
+    color: #211417;
+  }
+  h2{
+    font-size: 40px;
+    color: #9E847C;
+  }
+  button{
+    width: 150px;
+    height: 100px;
+    margin: 50px;
+    border-radius: 30px;
+    background-color: #E3E9E3;
+    color: #990887;
+    font-size: 20px;
+    transition: all 0.2s;
+    border: none;
+    &:hover{
+      font-size: 40px;
+      transition: all 0.2s;
+      width: 155px;
+      height: 105px;
+      background-color: #990887;
+      color: #E4D32B;
+      border: none;
+    }
+  }
+  .choice{
+    font-size: 50px;
+    text-decoration:solid underline #453368 4px;
+    color: #e4681b;
+  }
+
 }
