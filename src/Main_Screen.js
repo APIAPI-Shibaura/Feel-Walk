@@ -83,6 +83,7 @@ function Main({ userImage, onLogout }) {
               <div>
                 <h1>Main Screen</h1>
                 <p>This is the main content displayed on the main screen.</p>
+                <img src="./images/cloud.png" />
               </div>
             }
           />
