@@ -23,16 +23,24 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Mental Traker</h1>
-        {/*aaa*/}
+        <h1>Feel Walk</h1>
         <Routes>
+          {/* "/" にアクセス ⇒ 認証状況でリダイレクト */}
           <Route
             path="/"
-            element={user ? <Home /> : <Navigate to="/login" />}
+            element={user ? <Navigate to="/home" /> : <Navigate to="/login" />}
           />
+
+          {/* "/login"にアクセス ⇒ userがいるなら"/home"に、いなければLoginButton表示 */}
           <Route
             path="/login"
-            element={user ? <Navigate to="/" /> : <LoginButton />}
+            element={user ? <Navigate to="/home" /> : <LoginButton />}
+          />
+
+          {/* "/home"にアクセス ⇒ userがいるならHomeコンポーネント表示、いなければ"/login"にリダイレクト */}
+          <Route
+            path="/home"
+            element={user ? <Home /> : <Navigate to="/login" />}
           />
         </Routes>
       </div>

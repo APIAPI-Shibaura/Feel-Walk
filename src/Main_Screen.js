@@ -1,4 +1,3 @@
-// App.js
 import "./Main_Screen.css";
 import Image from "./Image";
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
