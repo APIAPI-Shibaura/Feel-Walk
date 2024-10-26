@@ -31,7 +31,7 @@ const Choice = () => {
           </div>
         ) : (
           <div>
-            <h1>感情は？</h1>
+            <h1>{feeling[currentQuestionNum].question}</h1>
             <h2>質問 {currentQuestionNum + 1}</h2>
             <div className='questions'>
               {Object.values(currentQuestion.choices).map((choice, index) => (
