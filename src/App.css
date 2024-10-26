@@ -91,51 +91,50 @@
 .home {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: baseline;
+  justify-content: baseline;
   height: 100vh; /* 画面全体を占める */
-  background-image: url("./images/background.png");
   background-size: cover;
   font-family: "Arial", sans-serif;
   color: #333;
+}
 
-  /* 雲のアニメーションのスタイル */
-  .cloud {
-    width: 300px; /* 画像のサイズを調整 */
-    height: auto;
-    position: relative;
-    animation: float 6s ease-in-out infinite;
-    transition: animation 0.3s ease;
-  }
+/* 雲のアニメーションのスタイル */
+.cloud {
+  width: 300px; /* 画像のサイズを調整 */
+  height: auto;
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+  transition: animation 0.3s ease;
+}
 
-  /* 上下に動くアニメーション */
-  @keyframes float {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-20px); /* 上下の距離を調整 */
-    }
-    100% {
-      transform: translateY(0);
-    }
+/* 上下に動くアニメーション */
+@keyframes float {
+  0% {
+    transform: translateY(0);
   }
-  /* ホバー時の左右に震えるアニメーション */
-  @keyframes shake {
-    0%,
-    100% {
-      transform: translateX(0);
-    }
-    25% {
-      transform: translateX(-5px);
-    }
-    75% {
-      transform: translateX(5px);
-    }
+  50% {
+    transform: translateY(-20px); /* 上下の距離を調整 */
   }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* ホバー時の左右に震えるアニメーション */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
 
-  /* ホバー時にアニメーションを変更 */
-  .cloud:hover {
-    animation: shake 0.2s ease-in-out infinite;
-  }
+/* ホバー時にアニメーションを変更 */
+.cloud:hover {
+  animation: shake 0.5s ease-in-out infinite;
 }
