@@ -31,16 +31,16 @@ const Choice = () => {
           </div>
         ) : (
           <div>
-            <h1>title</h1>
-            <h2>question {currentQuestionNum + 1}</h2>
+            <h1>感情は？</h1>
+            <h2>質問 {currentQuestionNum + 1}</h2>
             <div className='questions'>
-              {Object.values(currentQuestion.questions).map((question, index) => (
+              {Object.values(currentQuestion.choices).map((choice, index) => (
                 <button
                   key={index}
-                  onClick={() => handleQuestionClick(question.points)}
+                  onClick={() => handleQuestionClick(choice.points)}
                   className="questionButton"
                 >
-                  {question.text}
+                  {choice.text}
                 </button>
               ))}
             </div>
