@@ -105,6 +105,7 @@
     height: auto;
     position: relative;
     animation: float 6s ease-in-out infinite;
+    transition: animation 0.3s ease;
   }
 
   /* 上下に動くアニメーション */
@@ -118,5 +119,23 @@
     100% {
       transform: translateY(0);
     }
+  }
+  /* ホバー時の左右に震えるアニメーション */
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    75% {
+      transform: translateX(5px);
+    }
+  }
+
+  /* ホバー時にアニメーションを変更 */
+  .cloud:hover {
+    animation: shake 0.2s ease-in-out infinite;
   }
 }
