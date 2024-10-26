@@ -185,13 +185,11 @@
 
 .right-leg {
   left: 50px;
-  background-image: url("right-leg.png");
   animation: leg-swing 1s ease-in-out infinite alternate;
 }
 
 .left-leg {
   left: 30px;
-  background-image: url("left-leg.png");
   animation: leg-swing 1s ease-in-out infinite alternate-reverse;
 }
 
