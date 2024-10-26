@@ -1,42 +1,45 @@
+// App.jsx
 import { useEffect, useState } from "react";
 import { auth } from "./firebase/login";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import LoginButton from "./LoginButton";
 import Home from "./Home";
 import "./App.css";
 
 function App() {
   const [user, setUser] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
-    //firebaseの認証情報を監視
+    // firebaseの認証情報を監視
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUser(user);
     });
     return () => unsubscribe();
   }, []);
+
+  const isHomePage = location.pathname === "/home";
+
   return (
-    <Router>
-      <div className="App">
-        <h1>Mental Traker</h1>
-        {/*aaa*/}
-        <Routes>
-          <Route
-            path="/"
-            element={user ? <Home /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/login"
-            element={user ? <Navigate to="/" /> : <LoginButton />}
-          />
-        </Routes>
-      </div>
-    </Router>
+    <div className={`App ${isHomePage ? "no-background" : ""}`}>
+      {!user || !isHomePage ? <h1>Feel Walk</h1> : null}
+      <Routes>
+        {/* "/" にアクセス ⇒ 認証状況でリダイレクト */}
+        <Route
+          path="/"
+          element={user ? <Navigate to="/home" /> : <Navigate to="/login" />}
+        />
+
+        {/* "/login"にアクセス ⇒ userがいるなら"/home"に、いなければLoginButton表示 */}
+        <Route
+          path="/login"
+          element={user ? <Navigate to="/home" /> : <LoginButton />}
+        />
+
+        {/* "/home"にアクセス ⇒ userがいるならHomeコンポーネント表示、いなければ"/login"にリダイレクト */}
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </div>
   );
 }
 
