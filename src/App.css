@@ -1,91 +1,122 @@
-*{
-overflow-x: hidden;
-overflow-y: hidden;
+* {
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
-#login{
-padding: 0;
-margin: 0;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-height: 100vh;
-background-size: cover;
-font-family: "Arial", sans-serif;
-color: #333;
-background-image: url("./assets/login-image.jpg");
-
-h1 {
-  margin-bottom: 40px;
-  font-size: 2.5rem;
-  text-align: center;
-  color: #4a4a4a;
-}
-
-.login-button {
-  background-color: #4285f4;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s;
-}
-
-.login-button:hover {
-  background-color: #357ae8;
-  transform: scale(1.05);
-}
-
-.login-text {
+#login {
+  padding: 0;
   margin: 0;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-size: cover;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  background-image: url("./assets/login-image.jpg");
+
+  h1 {
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #4a4a4a;
+  }
+
+  .login-button {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+
+  .login-button:hover {
+    background-color: #357ae8;
+    transform: scale(1.05);
+  }
+
+  .login-text {
+    margin: 0;
+    text-align: center;
+  }
 }
 
-}
-
-.feelingQuestion{
+.feelingQuestion {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color:rgb(255, 201, 113);
-  h1{
+  background-color: rgb(255, 201, 113);
+  h1 {
     font-size: 50px;
     text-align: center;
     color: #211417;
   }
-  h2{
+  h2 {
     font-size: 40px;
-    color: #9E847C;
+    color: #9e847c;
   }
-  button{
+  button {
     width: 150px;
     height: 100px;
     margin: 50px;
     border-radius: 30px;
-    background-color: #E3E9E3;
+    background-color: #e3e9e3;
     color: #990887;
     font-size: 20px;
     transition: all 0.2s;
     border: none;
-    &:hover{
+    &:hover {
       font-size: 40px;
       transition: all 0.2s;
       width: 155px;
       height: 105px;
       background-color: #990887;
-      color: #E4D32B;
+      color: #e4d32b;
       border: none;
     }
   }
-  .choice{
+  .choice {
     font-size: 50px;
-    text-decoration:solid underline #453368 4px;
+    text-decoration: solid underline #453368 4px;
     color: #e4681b;
   }
+}
 
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* 画面全体を占める */
+  background-image: url("./images/background.png");
+  background-size: cover;
+  font-family: "Arial", sans-serif;
+  color: #333;
+
+  /* 雲のアニメーションのスタイル */
+  .cloud {
+    width: 300px; /* 画像のサイズを調整 */
+    height: auto;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* 上下に動くアニメーション */
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px); /* 上下の距離を調整 */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 }
