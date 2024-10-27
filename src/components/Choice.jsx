@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { feeling } from "../data/data";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { db } from "../firebase/login";
 import { doc, setDoc, Timestamp } from "firebase/firestore";
 
@@ -14,6 +14,7 @@ const Choice = () => {
   //感情の結果を保持
   const [emotion, setEmotion] = useState("");
   const currentQuestion = feeling[currentQuestionNum];
+  const navigate = useNavigate();
 
   //質問の選択肢をクリックしたときにスコアを追加し、次の質問に移動
   const handleQuestionClick = (points) => {
@@ -30,18 +31,12 @@ const Choice = () => {
   //最終的なスコアに基づいて感情を決定する関数
   const determineEmotion = async (finalScore) => {
     let resultEmotion = "";
+    if (finalScore >= 1000) resultEmotion = "Clear";
+    else if (finalScore >= 800)  resultEmotion = "Sunny";
+    else if (finalScore >= 600)  resultEmotion = "Cloudy";
+    else if (finalScore >= 400)  resultEmotion = "Rainy";
+    else resultEmotion = "Thunder";
 
-    if (finalScore >= 10) {
-      resultEmotion = "Clear";
-    } else if (finalScore >= 8) {
-      resultEmotion = "Sunny";
-    } else if (finalScore >= 6) {
-      resultEmotion = "Cloudy";
-    } else if (finalScore >= 4) {
-      resultEmotion = "Rainy";
-    } else {
-      resultEmotion = "Thunder";
-    }
     //感情の決定
     setEmotion(resultEmotion);
     //firestoreに結果を設定
@@ -63,22 +58,27 @@ const Choice = () => {
     }
   };
 
+  const navigateToClear = () => {navigate("/clear", { state: { score, emotion } });};
+  const navigateToSunny = () => {navigate("/sunny", { state: { score, emotion } });};
+  const navigateToCloudy = () => {navigate("/cloudy", { state: { score, emotion } });};
+  const navigateToRainy = () => {navigate("/rainy", { state: { score, emotion } });};
+  const navigateToThunder = () => {navigate("/thunder", { state: { score, emotion } });};
+
+
   return (
     <div>
       <div className="feelingQuestion">
         {isFinished ? (
           <div>
-            {emotion === "Clear" && <Link to="/Clear">Have a nice day</Link>}
-            {emotion === "Sunny" && <Link to="/Sunny">Have a nice day</Link>}
-            {emotion === "Cloudy" && <Link to="/Cloudy">Have a nice day</Link>}
-            {emotion === "Rainy" && <Link to="/Rainy">Have a nice day</Link>}
-            {emotion === "Thunder" && (
-              <Link to="/Thunder">Have a nice day</Link>
-            )}
+            {emotion === "Clear" && <button onClick={navigateToClear}>Have a nice day!</button>}
+            {emotion === "Sunny" && <button onClick={navigateToSunny}>Have a nice day!</button>}
+            {emotion === "Cloudy" && <button onClick={navigateToCloudy}>Have a nice day!</button>}
+            {emotion === "Rainy" && <button onClick={navigateToRainy}>Have a nice day!</button>}
+            {emotion === "Thunder" && <button onClick={navigateToThunder}>Have a nice day!</button>}
           </div>
         ) : (
           <div>
-            <h1>感情は？</h1>
+            <h1>{feeling[currentQuestionNum].question}</h1>
             <h2>質問 {currentQuestionNum + 1}</h2>
             <div className="questions">
               {Object.values(currentQuestion.choices).map((choice, index) => (
