@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { rainyTask } from '../data/rainyTask';
+import { thunderTask } from '../data/thunderTask'; // 確認してください
 import { useLocation } from 'react-router-dom';
 
-const Rainy = () => {
+const Thunder = () => {
   const location = useLocation();
   const { score: initialScore, emotion } = location.state || { score: 0, emotion: "Unknown" };
 
@@ -22,9 +22,9 @@ const Rainy = () => {
       const randomIndex = Math.floor(Math.random() * 5);
       randomArr.push(randomIndex);
       result.push({
-        text: rainyTask[i].questions[`ques${randomIndex + 1}`].text,
+        text: thunderTask[i].questions[`ques${randomIndex + 1}`].text,
         id: `${i}-${randomIndex}`,
-        points: rainyTask[i].questions[`ques${randomIndex + 1}`].points
+        points: thunderTask[i].questions[`ques${randomIndex + 1}`].points,
       });
     }
     return result;
@@ -43,8 +43,8 @@ const Rainy = () => {
   };
 
   return (
-    <div id='rainy'>
-      <h1>rainy</h1>
+    <div id='thunder'>
+      <h1>thunder</h1>
       <ul>
         {randomQuestions.map((question) => (
           <li
@@ -55,7 +55,7 @@ const Rainy = () => {
           </li>
         ))}
       </ul>
-      <h2>{score}</h2>
+      <h2>スコア: {score}</h2>
       <div style={{ width: "100%", backgroundColor: "#ddd", height: "24px" }}>
         <div style={progressBarStyle}></div>
       </div>
@@ -63,4 +63,4 @@ const Rainy = () => {
   );
 };
 
-export default Rainy;
+export default Thunder;

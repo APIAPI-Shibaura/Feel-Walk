@@ -4,9 +4,10 @@ import { useLocation } from 'react-router-dom';
 
 const Cloudy = () => {
   const location = useLocation();
-  const { score, emotion } = location.state || { score: 0, emotion: "Unknown" };
+  const { score: initialScore, emotion } = location.state || { score: 0, emotion: "Unknown" };
 
   const [randomQuestions, setRandomQuestions] = useState([]);
+  const [score, setScore] = useState(initialScore);
 
   const progressBarStyle = {
     width: `${(score / 1000) * 100}%`,
@@ -22,7 +23,8 @@ const Cloudy = () => {
       randomArr.push(randomIndex);
       result.push({
         text: cloudyTask[i].questions[`ques${randomIndex + 1}`].text,
-        id: `${i}-${randomIndex}`
+        id: `${i}-${randomIndex}`,
+        points: cloudyTask[i].questions[`ques${randomIndex + 1}`].points
       });
     }
     return result;
@@ -33,10 +35,11 @@ const Cloudy = () => {
     setRandomQuestions(questions);
   }, []);
 
-  const deleteToDo = (id) => {
+  const deleteToDo = (id, points) => {
     setRandomQuestions((prevQuestions) =>
       prevQuestions.filter((question) => question.id !== id)
     );
+    setScore((prevScore) => prevScore + points);
   };
 
   return (
@@ -46,7 +49,7 @@ const Cloudy = () => {
         {randomQuestions.map((question) => (
           <li
             key={question.id}
-            onClick={() => deleteToDo(question.id)}
+            onClick={() => deleteToDo(question.id, question.points)}
           >
             {question.text}
           </li>
