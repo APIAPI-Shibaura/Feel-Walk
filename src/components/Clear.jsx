@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { clearTask } from '../data/clearTask';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { clearTask } from "../data/clearTask";
+import { useLocation } from "react-router-dom";
 
 const Clear = () => {
   const location = useLocation();
-  const { score: initialScore, emotion } = location.state || { score: 0, emotion: "Unknown" };
+  const { score: initialScore, emotion } = location.state || {
+    score: 0,
+    emotion: "Unknown",
+  };
 
   const [randomQuestions, setRandomQuestions] = useState([]);
   const [score, setScore] = useState(initialScore);
@@ -24,7 +27,7 @@ const Clear = () => {
       result.push({
         text: clearTask[i].questions[`ques${randomIndex + 1}`].text,
         id: `${i}-${randomIndex}`,
-        points: clearTask[i].questions[`ques${randomIndex + 1}`].points
+        points: clearTask[i].questions[`ques${randomIndex + 1}`].points,
       });
     }
     return result;
@@ -43,15 +46,17 @@ const Clear = () => {
   };
 
   return (
-    <div id='clear'>
+    <div id="clear">
       <h1>clear</h1>
       <ul>
-        {randomQuestions.map((question) => (
+        {randomQuestions.map((question, index) => (
           <li
             key={question.id}
+            className={`list${index}`}
             onClick={() => deleteToDo(question.id, question.points)}
           >
             {question.text}
+            {index}
           </li>
         ))}
       </ul>
