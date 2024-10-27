@@ -1,12 +1,19 @@
 import "./Main_Screen.css";
 import Image from "./Image";
-import { Route, Routes, Link, useLocation } from "react-router-dom";
-import BackPage from "./BackPage";
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { auth } from "./firebase/login";
+import Clear from "./components/Clear";
+import Sunny from "./components/Sunny";
+import Cloudy from "./components/Cloudy";
+import Rainy from "./components/Rainy";
+import Thunder from "./components/Thunder";
+import LrButton from "./LrButton";
 
 function Main_Screen() {
   const [userImage, setUserImage] = useState(null);
+  const location = useLocation();
+  const { emotion } = location.state || {};
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -31,56 +38,18 @@ function Main_Screen() {
   };
 
   return (
-    <Routes>
-      <Route
-        path="/*"
-        element={<Main userImage={userImage} onLogout={handleLogout} />}
-      />
-    </Routes>
-  );
-}
-
-function Main({ userImage, onLogout }) {
-  const location = useLocation();
-  const isMainScreen = location.pathname === "/";
-
-  return (
     <div className="App">
-      <Image imageUrl={userImage} onClick={onLogout} />
+      <Image imageUrl={userImage} onClick={handleLogout} />
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "20px",
-        }}
-      >
-        <Link to={isMainScreen ? "/left" : "/"}>
-          <button className="Left-button">Left</button>
-        </Link>
-        <Link to={isMainScreen ? "/right" : "/"}>
-          <button className="right-button">Right</button>
-        </Link>
+      {/* 表示するコンポーネントを感情に応じて切り替え */}
+      <div className="weather-content">
+        {emotion === "Clear" && <Clear />}
+        {emotion === "Sunny" && <Sunny />}
+        {emotion === "Cloudy" && <Cloudy />}
+        {emotion === "Rainy" && <Rainy />}
+        {emotion === "Thunder" && <Thunder />}
       </div>
-
-      <Routes>
-        {isMainScreen ? (
-          <Route
-            path="/"
-            element={
-              <div>
-                <h1>Main Screen</h1>
-                <p>This is the main content displayed on the main screen.</p>
-              </div>
-            }
-          />
-        ) : (
-          <>
-            <Route path="/left" element={<BackPage />} />
-            <Route path="/right" element={<BackPage />} />
-          </>
-        )}
-      </Routes>
+      <LrButton userImage={userImage} onLogout={handleLogout} />
     </div>
   );
 }

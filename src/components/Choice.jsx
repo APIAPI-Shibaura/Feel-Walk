@@ -41,6 +41,8 @@ const Choice = () => {
     setEmotion(resultEmotion);
     //firestoreに結果を設定
     await saveToFirestore(resultEmotion);
+
+    navigate("/main", { state: { emotion: resultEmotion } });
   };
 
   //firestoreに感情データを保存する関数
@@ -111,13 +113,13 @@ const Choice = () => {
             <h2>質問 {currentQuestionNum + 1}</h2>
             <div className="questions">
               {Object.values(currentQuestion.choices).map((choice, index) => (
-                <a
+                <button
                   key={index}
                   onClick={() => handleQuestionClick(choice.points)}
                   className="questionButton"
                 >
                   {choice.text}
-                </a>
+                </button>
               ))}
             </div>
           </div>

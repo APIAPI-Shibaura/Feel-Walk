@@ -58,7 +58,7 @@ function Calendar() {
   };
 
   return (
-    <div>
+    <div className="cal">
       <FullCalendar
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
