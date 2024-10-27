@@ -58,21 +58,11 @@ const Choice = () => {
     }
   };
 
-  const navigateToClear = () => {
-    navigate("/clear", { state: { score, emotion } });
-  };
-  const navigateToSunny = () => {
-    navigate("/sunny", { state: { score, emotion } });
-  };
-  const navigateToCloudy = () => {
-    navigate("/cloudy", { state: { score, emotion } });
-  };
-  const navigateToRainy = () => {
-    navigate("/rainy", { state: { score, emotion } });
-  };
-  const navigateToThunder = () => {
-    navigate("/thunder", { state: { score, emotion } });
-  };
+  const navigateToClear = () => {navigate("/clear", { state: { score, emotion } });};
+  const navigateToSunny = () => {navigate("/sunny", { state: { score, emotion } });};
+  const navigateToCloudy = () => {navigate("/cloudy", { state: { score, emotion } });};
+  const navigateToRainy = () => {navigate("/rainy", { state: { score, emotion } });};
+  const navigateToThunder = () => {navigate("/thunder", { state: { score, emotion } });};
 
 
   return (
