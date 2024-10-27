@@ -1,7 +1,7 @@
 *{
 overflow-x: hidden;
 overflow-y: hidden;
-}
+} 
 
 #login{
 padding: 0;
@@ -88,4 +88,18 @@ h1 {
     color: #e4681b;
   }
 
+}
+
+.wether-title{
+  position: relative;
+  top: 10px; /* 上からの余白 */
+  left: 10px; /* 左からの余白 */
+  margin: 0;
+  
+}
+
+.wether-title h1{
+  position: absolute;
+  top : -40px;
+  left: 100px;
 }
