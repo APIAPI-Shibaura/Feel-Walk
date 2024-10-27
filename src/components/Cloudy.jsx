@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Cloudy = () => {
   return (
-    <div>
+    <div id="home">
       <h1>cloudy</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Cloudy
+export default Cloudy;
