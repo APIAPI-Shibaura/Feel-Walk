@@ -236,74 +236,48 @@
   background-image: url("./assets/sky-cloudy.png");
   z-index: 0;
 
-  .list0 {
-    position: absolute;
-    top: 150px;
-    left: 240px;
-    width: 300px; /* 雲のサイズ */
+  .cloud-container {
+    position: relative; /* 親コンテナを基準に相対位置を設定 */
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 雲の共通スタイル */
+  .cloud {
+    position: absolute; /* 親コンテナ内での絶対位置 */
+    width: 300px;
     height: 150px;
-    background-image: url("./assets/cloud2.png"); /* ここで雲の画像パスを指定 */
+    background-image: url("./assets/cloud2.png");
     background-size: contain;
     background-repeat: no-repeat;
     animation: float 6s ease-in-out infinite;
     transform-origin: center;
     z-index: 1;
+  }
+
+  .list0 {
+    top: 90%;
+    left: 10%;
   }
 
   .list1 {
-    position: absolute;
-    top: 300px;
-    left: 440px;
-    width: 300px; /* 雲のサイズ */
-    height: 150px;
-    background-image: url("./assets/cloud2.png"); /* ここで雲の画像パスを指定 */
-    background-size: contain;
-    background-repeat: no-repeat;
-    animation: float 6s ease-in-out infinite;
-    transform-origin: center;
-    z-index: 1;
+    top: 30%;
+    left: 30%;
   }
 
   .list2 {
-    position: absolute;
-    top: 150px;
-    left: 640px;
-    width: 300px; /* 雲のサイズ */
-    height: 150px;
-    background-image: url("./assets/cloud2.png"); /* ここで雲の画像パスを指定 */
-    background-size: contain;
-    background-repeat: no-repeat;
-    animation: float 6s ease-in-out infinite;
-    transform-origin: center;
-    z-index: 1;
+    top: 10%;
+    left: 50%;
   }
 
   .list3 {
-    position: absolute;
-    top: 300px;
-    left: 840px;
-    width: 300px; /* 雲のサイズ */
-    height: 150px;
-    background-image: url("./assets/cloud2.png"); /* ここで雲の画像パスを指定 */
-    background-size: contain;
-    background-repeat: no-repeat;
-    animation: float 6s ease-in-out infinite;
-    transform-origin: center;
-    z-index: 1;
+    top: 30%;
+    left: 70%;
   }
 
   .list4 {
-    position: absolute;
-    top: 150px;
-    left: 1040px;
-    width: 300px; /* 雲のサイズ */
-    height: 150px;
-    background-image: url("./assets/cloud2.png"); /* ここで雲の画像パスを指定 */
-    background-size: contain;
-    background-repeat: no-repeat;
-    animation: float 6s ease-in-out infinite;
-    transform-origin: center;
-    z-index: 1;
+    top: 10%;
+    left: 90%;
   }
 
   /* 上下に動くアニメーション */
