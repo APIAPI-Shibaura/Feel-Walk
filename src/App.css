@@ -100,14 +100,21 @@
   font-family: "Arial", sans-serif;
   color: #333;
   background-image: url("./assets/background.png");
+  z-index: 0;
 
   /* 雲のアニメーションのスタイル */
   .cloud {
-    width: 300px; /* 画像のサイズを調整 */
-    height: auto;
-    position: relative;
-    animation: float 6s ease-in-out infinite;
+    position: absolute;
+    top: 50px; /* 雲の位置調整 */
+    left: 100px;
+    width: 300px; /* 雲のサイズ */
+    height: 150px;
     transition: animation 0.3s ease;
+    background-image: url("./assets/cloud2.png"); /* ここで雲の画像パスを指定 */
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: float 6s ease-in-out infinite;
+    z-index: 1;
   }
 
   /* 上下に動くアニメーション */
@@ -145,6 +152,7 @@
     position: absolute;
     width: 100px; /* キャラクター全体の幅を調整 */
     height: 200px; /* キャラクター全体の高さを調整 */
+    z-index: index 2;
   }
 
   /* 各部位のスタイル */
@@ -168,11 +176,13 @@
 
   .right-arm {
     left: 60px;
+    background-image: url("./assets/right-arm.png");
     animation: arm-swing 1s ease-in-out infinite alternate;
   }
 
   .left-arm {
     left: 20px;
+    background-image: url("./assets/left-arm.png");
     animation: arm-swing 1s ease-in-out infinite alternate-reverse;
   }
 
@@ -187,11 +197,13 @@
 
   .right-leg {
     left: 50px;
+    background-image: url("./assets/right-leg.png");
     animation: leg-swing 1s ease-in-out infinite alternate;
   }
 
   .left-leg {
     left: 30px;
+    background-image: url("./assets/left-leg.png");
     animation: leg-swing 1s ease-in-out infinite alternate-reverse;
   }
 

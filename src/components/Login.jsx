@@ -13,23 +13,23 @@ const Login = () => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUser(user);
       if (user) {
-        navigate("/");  // ログイン済みならホームへ
+        navigate("/"); // ログイン済みならホームへ
       } else {
-        navigate("/login");  // 未ログインならログインページへ
+        navigate("/login"); // 未ログインならログインページへ
       }
     });
     return () => unsubscribe();
   }, [navigate]);
 
   return (
-    <div id='login'>
+    <div id="login">
       <h1>Feel Walk</h1>
       <Routes>
         <Route path="/" element={user ? <Home /> : <LoginButton />} />
         <Route path="/login" element={user ? <Home /> : <LoginButton />} />
       </Routes>
     </div>
-  )
-}
+  );
+};
 
 export default Login;
