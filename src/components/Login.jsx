@@ -13,9 +13,9 @@ const Login = () => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUser(user);
       if (user) {
-        navigate("/");  // ログイン済みならホームへ
+        navigate("/");
       } else {
-        navigate("/login");  // 未ログインならログインページへ
+        navigate("/login");
       }
     });
     return () => unsubscribe();
