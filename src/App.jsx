@@ -11,8 +11,6 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
       <div className="App">
-        <h1>Mental Traker</h1>
-        {/*aaa*/}
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
