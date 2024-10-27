@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { thunderTask } from '../data/thunderTask';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { thunderTask } from "../data/thunderTask";
+import { useLocation } from "react-router-dom";
 
 const Thunder = () => {
   const location = useLocation();
-  const { score: initialScore, emotion } = location.state || { score: 0, emotion: "Unknown" };
+  const { score: initialScore, emotion } = location.state || {
+    score: 0,
+    emotion: "Unknown",
+  };
 
   const [randomQuestions, setRandomQuestions] = useState([]);
   const [score, setScore] = useState(initialScore);
@@ -24,7 +27,7 @@ const Thunder = () => {
       result.push({
         text: thunderTask[i].questions[`ques${randomIndex + 1}`].text,
         id: `${i}-${randomIndex}`,
-        points: thunderTask[i].questions[`ques${randomIndex + 1}`].points
+        points: thunderTask[i].questions[`ques${randomIndex + 1}`].points,
       });
     }
     return result;
@@ -43,15 +46,17 @@ const Thunder = () => {
   };
 
   return (
-    <div id='thunder'>
+    <div id="thunder">
       <h1>thunder</h1>
       <ul>
-        {randomQuestions.map((question) => (
+        {randomQuestions.map((question, index) => (
           <li
             key={question.id}
+            className={`list${index}`}
             onClick={() => deleteToDo(question.id, question.points)}
           >
             {question.text}
+            {index}
           </li>
         ))}
       </ul>

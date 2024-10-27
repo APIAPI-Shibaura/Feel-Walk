@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { rainyTask } from '../data/rainyTask';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { rainyTask } from "../data/rainyTask";
+import { useLocation } from "react-router-dom";
 
 const Rainy = () => {
   const location = useLocation();
-  const { score: initialScore, emotion } = location.state || { score: 0, emotion: "Unknown" };
+  const { score: initialScore, emotion } = location.state || {
+    score: 0,
+    emotion: "Unknown",
+  };
 
   const [randomQuestions, setRandomQuestions] = useState([]);
   const [score, setScore] = useState(initialScore);
@@ -24,7 +27,7 @@ const Rainy = () => {
       result.push({
         text: rainyTask[i].questions[`ques${randomIndex + 1}`].text,
         id: `${i}-${randomIndex}`,
-        points: rainyTask[i].questions[`ques${randomIndex + 1}`].points
+        points: rainyTask[i].questions[`ques${randomIndex + 1}`].points,
       });
     }
     return result;
@@ -43,15 +46,17 @@ const Rainy = () => {
   };
 
   return (
-    <div id='rainy'>
+    <div id="rainy">
       <h1>rainy</h1>
       <ul>
-        {randomQuestions.map((question) => (
+        {randomQuestions.map((question, index) => (
           <li
             key={question.id}
+            className={`list${index}`}
             onClick={() => deleteToDo(question.id, question.points)}
           >
             {question.text}
+            {index}
           </li>
         ))}
       </ul>
