@@ -70,11 +70,11 @@ const Choice = () => {
       <div className="feelingQuestion">
         {isFinished ? (
           <div>
-            {emotion === "Clear" && <button onClick={navigateToClear}>Have a nice day!</button>}
-            {emotion === "Sunny" && <button onClick={navigateToSunny}>Have a nice day!</button>}
-            {emotion === "Cloudy" && <button onClick={navigateToCloudy}>Have a nice day!</button>}
-            {emotion === "Rainy" && <button onClick={navigateToRainy}>Have a nice day!</button>}
-            {emotion === "Thunder" && <button onClick={navigateToThunder}>Have a nice day!</button>}
+            {emotion === "Clear" && <a className="linkButton" onClick={navigateToClear}>Have a nice day!</button>}
+            {emotion === "Sunny" && <a className="linkButton"onClick={navigateToSunny}>Have a nice day!</button>}
+            {emotion === "Cloudy" && <a className="linkButton"onClick={navigateToCloudy}>Have a nice day!</button>}
+            {emotion === "Rainy" && <a className="linkButton"onClick={navigateToRainy}>Have a nice day!</button>}
+            {emotion === "Thunder" && <a className="linkButton"onClick={navigateToThunder}>Have a nice day!</button>}
           </div>
         ) : (
           <div>
@@ -82,13 +82,13 @@ const Choice = () => {
             <h2>質問 {currentQuestionNum + 1}</h2>
             <div className="questions">
               {Object.values(currentQuestion.choices).map((choice, index) => (
-                <button
+                <a
                   key={index}
                   onClick={() => handleQuestionClick(choice.points)}
                   className="questionButton"
                 >
                   {choice.text}
-                </button>
+                </a>
               ))}
             </div>
           </div>

@@ -1,75 +1,120 @@
-*{
-overflow-x: hidden;
-overflow-y: hidden;
+* {
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
-#login{
-padding: 0;
-margin: 0;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-height: 100vh;
-background-size: cover;
-font-family: "Arial", sans-serif;
-color: #333;
-background-image: url("./assets/login-image.jpg");
-
-h1 {
-  margin-bottom: 40px;
-  font-size: 2.5rem;
-  text-align: center;
-  color: #4a4a4a;
-}
-
-.login-button {
-  background-color: #4285f4;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s;
-}
-
-.login-button:hover {
-  background-color: #357ae8;
-  transform: scale(1.05);
-}
-
-.login-text {
+#login {
+  padding: 0;
   margin: 0;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-size: cover;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  background-image: url("./assets/login-image.jpg");
+
+  h1 {
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #4a4a4a;
+  }
+
+  .login-button {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+
+  .login-button:hover {
+    background-color: #357ae8;
+    transform: scale(1.05);
+  }
+
+  .login-text {
+    margin: 0;
+    text-align: center;
+  }
 }
 
-}
-
-.feelingQuestion{
+.feelingQuestion {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
   height: 100vh;
-  padding: 0;
-  margin: 0;
-  background-color: #f4eee0;
-  h1,h2{
+  background-color: rgb(255, 201, 113);
+  h1 {
+    font-size: 50px;
     text-align: center;
+    color: #211417;
   }
-  button{
-  width: 100px;
-  overflow: hidden;
-  border-radius: 50%;
-  aspect-ratio: 1/1;
-  border: none;
-  background-color: #bfc758;
-  margin: 50px;
-  transition: all 0.2s;
-    &:hover{
-      background-color: #704273;
-      color: #f4eee0;
+  h2 {
+    font-size: 40px;
+    color: #9e847c;
+  }
+  button {
+    width: 150px;
+    height: 100px;
+    margin: 50px;
+    border-radius: 30px;
+    background-color: #e3e9e3;
+    color: #990887;
+    font-size: 20px;
+    transition: all 0.2s;
+    border: none;
+    &:hover {
+      font-size: 40px;
       transition: all 0.2s;
+      width: 155px;
+      height: 105px;
+      background-color: #990887;
+      color: #e4d32b;
+      border: none;
     }
   }
+  .choice {
+    font-size: 50px;
+    text-decoration: solid underline #453368 4px;
+    color: #e4681b;
+  }
+}
+
+.home a {
+  text-decoration: none;
+  color: white;
+  padding: 80px 40px;
+  border-radius: 5px;
+  background-color: #4caf50;
+  font-size: 30px;
+  transition: background-color 0.3s ease;
+}
+.home a:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.linkButton {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  padding: 20px 40px;
+  border-radius: 5px;
+  background-color: #4caf50;
+  font-size: 30px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
+}
+
+.linkButton:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
 }
