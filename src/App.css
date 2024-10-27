@@ -50,42 +50,26 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
   height: 100vh;
-  background-color:rgb(255, 201, 113);
-  h1{
-    font-size: 50px;
+  padding: 0;
+  margin: 0;
+  background-color: #f4eee0;
+  h1,h2{
     text-align: center;
-    color: #211417;
-  }
-  h2{
-    font-size: 40px;
-    color: #9E847C;
   }
   button{
-    width: 150px;
-    height: 100px;
-    margin: 50px;
-    border-radius: 30px;
-    background-color: #E3E9E3;
-    color: #990887;
-    font-size: 20px;
-    transition: all 0.2s;
-    border: none;
+  width: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  border: none;
+  background-color: #bfc758;
+  margin: 50px;
+  transition: all 0.2s;
     &:hover{
-      font-size: 40px;
+      background-color: #704273;
+      color: #f4eee0;
       transition: all 0.2s;
-      width: 155px;
-      height: 105px;
-      background-color: #990887;
-      color: #E4D32B;
-      border: none;
     }
   }
-  .choice{
-    font-size: 50px;
-    text-decoration:solid underline #453368 4px;
-    color: #e4681b;
-  }
-
 }
