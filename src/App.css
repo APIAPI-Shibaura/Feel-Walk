@@ -104,3 +104,59 @@
     }
   }
 }
+
+/* カレンダー全体のスタイル */
+.cal {
+  max-width: 900px; /* カレンダーの最大幅 */
+  margin: 0 auto; /* 中央揃え */
+  padding: 20px; /* パディング */
+  background-color: #f9f9f9; /* 背景色 */
+  border: 1px solid #ddd; /* 境界線 */
+  border-radius: 8px; /* 角丸 */
+  height: fit-content;
+}
+
+/* カレンダーのヘッダー */
+.fc-toolbar {
+  display: flex;
+  justify-content: space-between; /* 左右に余白 */
+  align-items: center; /* 縦方向に中央揃え */
+  margin-bottom: 20px; /* 下の余白 */
+}
+
+/* 日付セルのスタイル */
+.fc-daygrid-day {
+  background-color: #ffffff; /* 日付セルの背景色 */
+  border: 1px solid #eaeaea; /* 日付セルの境界線 */
+  border-radius: 4px; /* 角丸 */
+  padding: 10px; /* パディング */
+  transition: background-color 0.3s; /* ホバー時の効果 */
+}
+
+/* 日付セルにホバーしたときのスタイル */
+.fc-daygrid-day:hover {
+  background-color: #f0f0f0; /* ホバー時の背景色 */
+}
+
+/* イベントのスタイル */
+.fc-event {
+  display: flex; /* アイコンとテキストを並べる */
+  align-items: center; /* 縦方向に中央揃え */
+  padding: 5px; /* パディング */
+  margin: 2px 0; /* 上下のマージン */
+  border-radius: 4px; /* 角丸 */
+}
+
+/* アイコンのスタイル */
+.fc-event .icon {
+  margin-right: 5px; /* アイコンとテキストの間に余白 */
+}
+
+/* イベントが表示されるセルの背景色 */
+.fc-event:nth-child(odd) {
+  background-color: #e8f0fe; /* 偶数行の背景色 */
+}
+
+.fc-event:nth-child(even) {
+  background-color: #fce4ec; /* 奇数行の背景色 */
+}

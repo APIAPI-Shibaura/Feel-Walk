@@ -41,6 +41,8 @@ const Choice = () => {
     setEmotion(resultEmotion);
     //firestoreに結果を設定
     await saveToFirestore(resultEmotion);
+
+    navigate("/main", { state: { emotion: resultEmotion } });
   };
 
   //firestoreに感情データを保存する関数
