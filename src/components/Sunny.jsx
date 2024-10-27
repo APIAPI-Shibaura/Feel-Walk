@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { sunnyTask } from '../data/sunnyTask';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { sunnyTask } from "../data/sunnyTask";
+import { useLocation } from "react-router-dom";
 
 const Sunny = () => {
   const location = useLocation();
-  const { score: initialScore, emotion } = location.state || { score: 0, emotion: "Unknown" };
+  const { score: initialScore, emotion } = location.state || {
+    score: 0,
+    emotion: "Unknown",
+  };
 
   const [randomQuestions, setRandomQuestions] = useState([]);
   const [score, setScore] = useState(initialScore);
@@ -24,7 +27,7 @@ const Sunny = () => {
       result.push({
         text: sunnyTask[i].questions[`ques${randomIndex + 1}`].text,
         id: `${i}-${randomIndex}`,
-        points: sunnyTask[i].questions[`ques${randomIndex + 1}`].points
+        points: sunnyTask[i].questions[`ques${randomIndex + 1}`].points,
       });
     }
     return result;
@@ -43,15 +46,17 @@ const Sunny = () => {
   };
 
   return (
-    <div id='sunny'>
+    <div id="sunny">
       <h1>sunny</h1>
       <ul>
-        {randomQuestions.map((question) => (
+        {randomQuestions.map((question, index) => (
           <li
             key={question.id}
+            className={`list${index}`}
             onClick={() => deleteToDo(question.id, question.points)}
           >
             {question.text}
+            {index}
           </li>
         ))}
       </ul>
@@ -64,4 +69,3 @@ const Sunny = () => {
 };
 
 export default Sunny;
-
