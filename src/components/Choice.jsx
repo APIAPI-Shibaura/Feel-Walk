@@ -32,9 +32,9 @@ const Choice = () => {
   const determineEmotion = async (finalScore) => {
     let resultEmotion = "";
     if (finalScore >= 1000) resultEmotion = "Clear";
-    else if (finalScore >= 800)  resultEmotion = "Sunny";
-    else if (finalScore >= 600)  resultEmotion = "Cloudy";
-    else if (finalScore >= 400)  resultEmotion = "Rainy";
+    else if (finalScore >= 800) resultEmotion = "Sunny";
+    else if (finalScore >= 600) resultEmotion = "Cloudy";
+    else if (finalScore >= 400) resultEmotion = "Rainy";
     else resultEmotion = "Thunder";
 
     //感情の決定
@@ -58,24 +58,52 @@ const Choice = () => {
     }
   };
 
-  const navigateToClear = () => {navigate("/clear", { state: { score, emotion } });};
-  const navigateToSunny = () => {navigate("/sunny", { state: { score, emotion } });};
-  const navigateToCloudy = () => {navigate("/cloudy", { state: { score, emotion } });};
-  const navigateToRainy = () => {navigate("/rainy", { state: { score, emotion } });};
-  const navigateToThunder = () => {navigate("/thunder", { state: { score, emotion } });};
-
+  const navigateToClear = () => {
+    navigate("/clear", { state: { score, emotion } });
+  };
+  const navigateToSunny = () => {
+    navigate("/sunny", { state: { score, emotion } });
+  };
+  const navigateToCloudy = () => {
+    navigate("/cloudy", { state: { score, emotion } });
+  };
+  const navigateToRainy = () => {
+    navigate("/rainy", { state: { score, emotion } });
+  };
+  const navigateToThunder = () => {
+    navigate("/thunder", { state: { score, emotion } });
+  };
 
   return (
     <div>
       <div className="feelingQuestion">
         {isFinished ? (
           <div>
-            {emotion === "Clear" && <a className="linkButton" onClick={navigateToClear}>Have a nice day!</button>}
-            {emotion === "Sunny" && <a className="linkButton"onClick={navigateToSunny}>Have a nice day!</button>}
-            {emotion === "Cloudy" && <a className="linkButton"onClick={navigateToCloudy}>Have a nice day!</button>}
-            {emotion === "Rainy" && <a className="linkButton"onClick={navigateToRainy}>Have a nice day!</button>}
-            {emotion === "Thunder" && <a className="linkButton"onClick={navigateToThunder}>Have a nice day!</button>}
-
+            {emotion === "Clear" && (
+              <a className="linkButton" onClick={navigateToClear}>
+                Have a nice day!
+              </a>
+            )}
+            {emotion === "Sunny" && (
+              <a className="linkButton" onClick={navigateToSunny}>
+                Have a nice day!
+              </a>
+            )}
+            {emotion === "Cloudy" && (
+              <a className="linkButton" onClick={navigateToCloudy}>
+                Have a nice day!
+              </a>
+            )}
+            {emotion === "Rainy" && (
+              <a className="linkButton" onClick={navigateToRainy}>
+                Have a nice day!
+              </a>
+            )}
+            {emotion === "Thunder" && (
+              <a className="linkButton" onClick={navigateToThunder}>
+                Have a nice day!
+              </a>
+            )}
           </div>
         ) : (
           <div>
