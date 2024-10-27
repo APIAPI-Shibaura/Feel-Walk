@@ -1,33 +1,24 @@
 import "./Main_Screen.css";
 import Image from "./Image";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { Route, Routes, Link, useLocation } from "react-router-dom";
 import BackPage from "./BackPage";
 import { useEffect, useState } from "react";
-import { auth } from "./firebase";
+import { auth } from "./firebase/login";
 
 function Main_Screen() {
-  // Firebase のユーザー情報を保持
   const [userImage, setUserImage] = useState(null);
 
   useEffect(() => {
-    // Firebase のユーザー情報を監視
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        setUserImage(user.photoURL); // Firebase のユーザー画像 URL を取得
+        setUserImage(user.photoURL);
       } else {
-        setUserImage(null); // ログアウト時に画像をリセット
+        setUserImage(null);
       }
     });
     return () => unsubscribe();
   }, []);
 
-  // ログアウト処理
   const handleLogout = () => {
     auth
       .signOut()
@@ -40,14 +31,12 @@ function Main_Screen() {
   };
 
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/*"
-          element={<Main userImage={userImage} onLogout={handleLogout} />}
-        />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route
+        path="/*"
+        element={<Main userImage={userImage} onLogout={handleLogout} />}
+      />
+    </Routes>
   );
 }
 
@@ -79,11 +68,9 @@ function Main({ userImage, onLogout }) {
           <Route
             path="/"
             element={
-              //ここに表画面に乗せたいコードを入れる
               <div>
                 <h1>Main Screen</h1>
                 <p>This is the main content displayed on the main screen.</p>
-                <img src="./images/cloud.png" />
               </div>
             }
           />

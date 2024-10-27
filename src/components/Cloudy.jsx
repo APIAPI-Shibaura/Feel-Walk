@@ -1,5 +1,5 @@
 import React from "react";
-import background from "../images/background.png";
+import "../App.css";
 import cloud from "../images/cloud.png";
 import head from "../images/head.png";
 import rightarm from "../images/right-arm.png";
@@ -12,7 +12,6 @@ const Cloudy = () => {
     <div>
       <h1>cloudy</h1>
       <img src={cloud} className="cloud" />
-      <img src={background} className="home" />
       <div className="character">
         <img src={head} className="head" />
         <img src={rightarm} className="right-arm" />

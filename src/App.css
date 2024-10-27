@@ -89,14 +89,17 @@
 }
 
 .home {
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: baseline;
-  justify-content: baseline;
-  height: 100vh; /* 画面全体を占める */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   background-size: cover;
   font-family: "Arial", sans-serif;
   color: #333;
+  background-image: url("./assets/background.png");
 }
 
 /* 雲のアニメーションのスタイル */
@@ -140,7 +143,7 @@
 }
 
 .character {
-  position: relative;
+  position: absolute;
   width: 100px; /* キャラクター全体の幅を調整 */
   height: 200px; /* キャラクター全体の高さを調整 */
 }
