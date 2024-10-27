@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { feeling } from "../data/data";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { db } from "../firebase/login";
 import { doc, setDoc, Timestamp } from "firebase/firestore";
 
