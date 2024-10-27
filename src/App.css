@@ -4,7 +4,6 @@
 }
 
 #login {
-  
   padding: 0;
   margin: 0;
   display: flex;
@@ -76,7 +75,6 @@
   background-color: #45a049;
   transform: scale(1.05);
 }
-
 
 .feelingQuestion {
   display: flex;
@@ -161,6 +159,7 @@
 
 .fc-event:nth-child(even) {
   background-color: #fce4ec; /* 奇数行の背景色 */
+}
 
 #clear {
   padding: 0;
@@ -866,5 +865,4 @@
       transform: rotate(-15deg);
     }
   }
-
 }
