@@ -2,8 +2,13 @@ import React from "react";
 
 const Cloudy = () => {
   return (
-    <div id="home">
-      <div className="cloud"></div>
+    <div id="cloudy">
+      <div className="cloud-container">
+        <div className="cloud cloud1"></div>
+        <div className="cloud cloud2"></div>
+        <div className="cloud cloud3"></div>
+      </div>
+
       <div className="character">
         <div className="head"></div>
         <div className="right-arm"></div>

@@ -88,7 +88,7 @@
   }
 }
 
-#home {
+#cloudy {
   padding: 0;
   margin: 0;
   display: flex;
@@ -99,22 +99,37 @@
   background-size: cover;
   font-family: "Arial", sans-serif;
   color: #333;
-  background-image: url("./assets/background.png");
+  background-image: url("./assets/sky-cloudy.png");
   z-index: 0;
 
   /* 雲のアニメーションのスタイル */
   .cloud {
     position: absolute;
-    top: 50px; /* 雲の位置調整 */
-    left: 100px;
+    top: 50px;
+    left: 600px;
     width: 300px; /* 雲のサイズ */
     height: 150px;
-    transition: animation 0.3s ease;
     background-image: url("./assets/cloud2.png"); /* ここで雲の画像パスを指定 */
     background-size: contain;
     background-repeat: no-repeat;
     animation: float 6s ease-in-out infinite;
+    transform-origin: center;
     z-index: 1;
+  }
+
+  .cloud1 {
+    top: 70px;
+    left: 10%; /* コンテナ内の左端に配置 */
+  }
+
+  .cloud2 {
+    top: 120px;
+    left: 50%; /* コンテナの中央に配置 */
+  }
+
+  .cloud3 {
+    top: 70px;
+    left: 70%; /* コンテナ内の右端に配置 */
   }
 
   /* 上下に動くアニメーション */
@@ -123,7 +138,7 @@
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-20px); /* 上下の距離を調整 */
+      transform: translateY(-50px); /* 上下の距離を調整 */
     }
     100% {
       transform: translateY(0);
@@ -150,9 +165,11 @@
 
   .character {
     position: absolute;
-    width: 100px; /* キャラクター全体の幅を調整 */
-    height: 200px; /* キャラクター全体の高さを調整 */
-    z-index: index 2;
+    top: 450px;
+    left: 500px;
+    width: 300px; /* キャラクター全体の幅を調整 */
+    height: 600px; /* キャラクター全体の高さを調整 */
+    z-index: 2;
   }
 
   /* 各部位のスタイル */
@@ -160,9 +177,10 @@
     position: absolute;
     top: 0;
     left: 30px;
-    width: 40px;
-    height: 60px;
+    width: 150px;
+    height: 100px;
     background-size: cover;
+    background-image: url("./assets/head.png");
   }
 
   .right-arm,
