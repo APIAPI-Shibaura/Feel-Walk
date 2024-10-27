@@ -68,10 +68,26 @@ const Choice = () => {
       <div className="feelingQuestion">
         {isFinished ? (
           <div>
-            {emotion === "Clear" && <Link to="/Clear">Have a nice day</Link>}
-            {emotion === "Sunny" && <Link to="/Sunny">Have a nice day</Link>}
-            {emotion === "Cloudy" && <Link to="/Cloudy">Have a nice day</Link>}
-            {emotion === "Rainy" && <Link to="/Rainy">Have a nice day</Link>}
+            {emotion === "Clear" && (
+              <Link to="/Clear" className="linkButton">
+                Have a nice day
+              </Link>
+            )}
+            {emotion === "Sunny" && (
+              <Link to="/Sunny" className="linkButton">
+                Have a nice day
+              </Link>
+            )}
+            {emotion === "Cloudy" && (
+              <Link to="/Cloudy" className="linkButton">
+                Have a nice day
+              </Link>
+            )}
+            {emotion === "Rainy" && (
+              <Link to="/Rainy" className="linkButton">
+                Have a nice day
+              </Link>
+            )}
             {emotion === "Thunder" && (
               <Link to="/Thunder">Have a nice day</Link>
             )}
